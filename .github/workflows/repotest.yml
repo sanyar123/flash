@@ -18,6 +18,7 @@ jobs:
           WORKFLOW_ID: "weather-shopper.yml"
           SCRIPT_PATH: ".github/workflows/script.js"
         with:
+          github-token: ${{ secrets.CROSS_REPOSITORY_ACCESS_TOKEN }}
           script: |
             const runScript = require(`${process.env.GITHUB_WORKSPACE}/${process.env.SCRIPT_PATH}`);
             runScript({ context, github, core });
