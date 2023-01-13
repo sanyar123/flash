@@ -19,7 +19,6 @@ jobs:
           SCRIPT_PATH: ".github/workflows/script.js"
         with:
           script: |
-            console.log('script path: ')
             const runScript = require(`${process.env.GITHUB_WORKSPACE}/${process.env.SCRIPT_PATH}`);
             runScript({ context, github, core });
             
