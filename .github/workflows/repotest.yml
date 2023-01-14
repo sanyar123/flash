@@ -23,6 +23,9 @@ jobs:
             const runScript = require(`${process.env.GITHUB_WORKSPACE}/${process.env.SCRIPT_PATH}`);
             runScript({ context, github, core });
             
+      - name: Create short sha of current checked out commit
+        run: echo "LOCAL_SHORT_SHA=$(git rev-parse --short HEAD)"
+            
   jobtest:
     runs-on: ubuntu-latest
     steps:
