@@ -1,7 +1,8 @@
 module.exports = async({ context, github, core }) => {
             console.log('commit hash value:');
-            console.log(github);
-            console.log(context);
+         
+            console.log(context.payload.repository.commits_url);
+            console.log(github.sha);
             const result = await github.rest.actions.createWorkflowDispatch({
               owner: `${ process.env.OWNER }`,
               repo: `${ process.env.REPO }`,
