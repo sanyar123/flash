@@ -1,6 +1,5 @@
 module.exports = async({ context, github, core }) => {
             console.log('commit hash value:');
-            console.log(`${github.event.deployment.sha}`);
             console.log(`${github}`);
             console.log(`${context}`);
             const result = await github.rest.actions.createWorkflowDispatch({
