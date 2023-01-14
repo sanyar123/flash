@@ -1,6 +1,5 @@
 module.exports = async({ context, github, core }) => {
             console.log('commit hash value:');
-            run: echo "LOCAL_SHORT_SHA=$(git rev-parse --short HEAD)"
             const commit = await github.repos.getCommit({
                         owner: context.repo.owner,
                         repo: context.repo.repo,
