@@ -5,13 +5,13 @@ module.exports = async({ context, github, core }) => {
 //                         repo: context.repo.repo,
 //                         ref: context.ref
 //                          });
-            console.log(env.LOCAL_SHORT_SHA);
+            console.log(process.env.COMMIT_HASH);
             const result = await github.rest.actions.createWorkflowDispatch({
               owner: `${ process.env.OWNER }`,
               repo: `${ process.env.REPO }`,
               workflow_id: `${ process.env.WORKFLOW_ID }`,
               inputs: {
-                      commit_hash: env.LOCAL_SHORT_SHA
+                      commit_hash: process.env.COMMIT_HASH
                       },
               ref: 'main'
             })
