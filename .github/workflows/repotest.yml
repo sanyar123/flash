@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Create short sha of current checked out commit
-        run: echo "LOCAL_LONG_SHA=$(git rev-parse --long HEAD)"
+        run: const LOCAL_LONG_SHA = '$(git rev-parse --long HEAD)'
     
       - name: Run API tests
         uses: actions/github-script@v6
