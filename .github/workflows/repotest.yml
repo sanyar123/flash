@@ -26,4 +26,4 @@ jobs:
   jobtest:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "LOCAL_SHORT_SHA=$(git rev-parse --short HEAD)"
+      - run: date
