@@ -11,8 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Create short sha of current checked out commit
-        run: |
-          console.log("${{ github.sha }}")
+        run: console.log(" ${{ github.sha }} ")
           
     
       - name: Run API tests
