@@ -13,7 +13,6 @@ jobs:
       - name: Create short sha of current checked out commit
         run: |
           console.log("${{ github.sha }}")
-          echo "LOCAL_SHORT_SHA=$(git rev-parse --long HEAD)" >> $GITHUB_ENV
           
     
       - name: Run API tests
@@ -23,7 +22,7 @@ jobs:
           REPO: "flink-weather-shopper"
           WORKFLOW_ID: "weather-shopper.yml"
           SCRIPT_PATH: ".github/workflows/script.js"
-          COMMIT_HASH: "${{ env.LOCAL_SHORT_SHA }}"
+          COMMIT_HASH: "${{ github.sha }}"
         with:
           github-token: ${{ secrets.CROSS_REPOSITORY_ACCESS_TOKEN }}
           script: |
