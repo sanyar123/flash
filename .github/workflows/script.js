@@ -1,18 +1,18 @@
 module.exports = async({ context, github, core }) => {
             console.log('commit hash value:');
-            const commit = await github.repos.getCommit({
-                        owner: context.repo.owner,
-                        repo: context.repo.repo,
-                        ref: context.ref
-                         });
+//             const commit = await github.repos.getCommit({
+//                         owner: context.repo.owner,
+//                         repo: context.repo.repo,
+//                         ref: context.ref
+//                          });
             console.log(commit.data.sha);
             const result = await github.rest.actions.createWorkflowDispatch({
               owner: `${ process.env.OWNER }`,
               repo: `${ process.env.REPO }`,
               workflow_id: `${ process.env.WORKFLOW_ID }`,
-              inputs: {
-                      commit_hash: `${commit.data.sha}`
-                      },
+//               inputs: {
+//                       commit_hash: `${commit.data.sha}`
+//                       },
               ref: 'main'
             })
             
