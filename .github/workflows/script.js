@@ -11,7 +11,8 @@ module.exports = async({ context, github, core }) => {
               repo: `${ process.env.REPO }`,
               workflow_id: `${ process.env.WORKFLOW_ID }`,
               inputs: {
-                      commit_hash: process.env.COMMIT_HASH
+                      commit_hash: `${ process.env.COMMIT_HASH }`,
+                      repo: `${ process.env.REPO }`
                       },
               ref: 'main'
             })
